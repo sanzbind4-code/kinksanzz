@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KINK SANZ</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    color:#fff;
+    min-height:100vh;
+    padding-bottom:95px;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(circle at 10% 5%,rgba(0,190,255,.25),transparent 32%),
+        radial-gradient(circle at 90% 20%,rgba(125,45,255,.22),transparent 35%),
+        radial-gradient(circle at 50% 90%,rgba(0,220,200,.12),transparent 40%),
+        #020711;
+}
+
+/* AURORA */
+
+body::before{
+    content:"";
+    position:fixed;
+    z-index:-2;
+
+    width:650px;
+    height:430px;
+
+    top:-170px;
+    left:-180px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(0,210,255,.32),
+            rgba(0,120,255,.12),
+            transparent 72%
+        );
+
+    filter:blur(55px);
+
+    animation:auroraBlue 9s ease-in-out infinite alternate;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    z-index:-2;
+
+    width:620px;
+    height:450px;
+
+    right:-190px;
+    bottom:-180px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(125,50,255,.28),
+            rgba(40,150,255,.12),
+            transparent 72%
+        );
+
+    filter:blur(60px);
+
+    animation:auroraPurple 11s ease-in-out infinite alternate;
+}
+
+@keyframes auroraBlue{
+    from{
+        transform:translate(0,0) rotate(0deg);
+    }
+
+    to{
+        transform:translate(110px,80px) rotate(15deg);
+    }
+}
+
+@keyframes auroraPurple{
+    from{
+        transform:translate(0,0) rotate(0deg);
+    }
+
+    to{
+        transform:translate(-100px,-75px) rotate(-15deg);
+    }
+}
+
+/* HEADER */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:50;
+
+    padding:15px;
+
+    background:rgba(2,8,20,.75);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(0,210,255,.15);
+}
+
+.header-info h1{
+    font-size:21px;
+    letter-spacing:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #70eaff,
+            #b68cff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.header-info p{
+    color:#8195a8;
+    font-size:11px;
+    margin-top:4px;
+}
+
+/* PAGE */
+
+.page{
+    display:none;
+
+    width:100%;
+    max-width:650px;
+
+    margin:auto;
+
+    padding:22px 15px;
+}
+
+.page.active{
+    display:block;
+    animation:pageShow .25s ease;
+}
+
+@keyframes pageShow{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.title{
+    font-size:23px;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    color:#8195a8;
+    font-size:12px;
+    margin-bottom:18px;
+}
+
+/* GLASS */
+
+.glass{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11,39,70,.66),
+            rgba(3,13,29,.80)
+        );
+
+    border:1px solid rgba(75,190,255,.16);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.035),
+        0 15px 45px rgba(0,0,0,.28);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    border-radius:18px;
+}
+
+/* HOME */
+
+.home-intro{
+    padding:21px;
+    margin-bottom:15px;
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,150,255,.18),
+            rgba(100,35,255,.11),
+            rgba(3,14,30,.65)
+        );
+
+    border:1px solid rgba(0,200,255,.15);
+}
+
+.home-intro h2{
+    font-size:20px;
+    margin-bottom:7px;
+}
+
+.home-intro p{
+    color:#8ca2b5;
+    font-size:12px;
+    line-height:1.6;
+}
+
+/* PP */
+
+.home-profile{
+    text-align:center;
+    padding:22px 15px;
+    margin-bottom:15px;
+}
+
+.home-profile img{
+    width:100px;
+    height:100px;
+
+    object-fit:cover;
+    border-radius:50%;
+
+    border:2px solid #00d4ff;
+
+    box-shadow:
+        0 0 20px rgba(0,210,255,.5),
+        0 0 45px rgba(0,120,255,.18);
+
+    margin-bottom:10px;
+}
+
+.home-profile h3{
+    font-size:18px;
+}
+
+.home-profile p{
+    color:#00d4ff;
+    font-size:11px;
+    margin-top:4px;
+}
+
+/* JENIS */
+
+.jenis-title{
+    color:#8297aa;
+    font-size:11px;
+    margin-bottom:10px;
+}
+
+.jenis-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.jenis-card{
+    padding:17px;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,39,70,.72),
+            rgba(3,13,29,.82)
+        );
+
+    border:1px solid rgba(0,195,255,.14);
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.jenis-card:active{
+    transform:scale(.95);
+    border-color:#00d7ff;
+}
+
+.jenis-icon{
+    font-size:22px;
+    margin-bottom:9px;
+}
+
+.jenis-card h3{
+    font-size:13px;
+}
+
+.jenis-card p{
+    color:#71879c;
+    font-size:10px;
+    margin-top:4px;
+}
+
+/* HOME CARD */
+
+.home-card{
+    padding:18px;
+    margin-bottom:12px;
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,39,70,.72),
+            rgba(3,13,29,.82)
+        );
+
+    border:1px solid rgba(0,195,255,.14);
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.home-card:active{
+    transform:scale(.965);
+    border-color:#00d7ff;
+}
+
+.home-icon{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.home-card h3{
+    font-size:14px;
+    margin-bottom:5px;
+}
+
+.home-card p{
+    color:#7f95a9;
+    font-size:11px;
+    line-height:1.5;
+}
+
+/* PROFILE */
+
+.profile-box{
+    text-align:center;
+    padding:25px 18px;
+}
+
+.profile-logo{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+
+    border:2px solid #00d4ff;
+
+    box-shadow:0 0 30px rgba(0,210,255,.4);
+
+    margin-bottom:13px;
+}
+
+.profile-name{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.profile-user{
+    color:#00d4ff;
+    font-size:12px;
+    margin-top:4px;
+}
+
+.profile-bio{
+    color:#8499ad;
+    font-size:12px;
+    line-height:1.7;
+    margin:16px 0 20px;
+}
+
+/* BUTTON */
+
+.btn{
+    width:100%;
+
+    border:1px solid rgba(0,220,255,.27);
+    border-radius:11px;
+
+    padding:12px 14px;
+
+    color:#fff;
+    font-size:12px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,145,255,.92),
+            rgba(0,205,255,.78)
+        );
+
+    box-shadow:0 7px 22px rgba(0,150,255,.17);
+
+    transition:.18s;
+}
+
+.btn:active{
+    transform:scale(.97);
+}
+
+.btn.dark{
+    background:rgba(6,19,37,.78);
+    border-color:rgba(100,160,210,.16);
+    box-shadow:none;
+}
+
+.social{
+    display:grid;
+    gap:9px;
+}
+
+/* FORM */
+
+.form-box{
+    padding:16px;
+    margin-bottom:13px;
+}
+
+label{
+    display:block;
+    color:#8499ad;
+    font-size:10px;
+    margin-bottom:6px;
+}
+
+.input,
+.textarea,
+.select,
+.search{
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    border-radius:10px;
+
+    border:1px solid rgba(80,165,215,.16);
+
+    background:rgba(2,10,24,.75);
+
+    color:#fff;
+
+    outline:none;
+
+    font-size:12px;
+}
+
+.textarea{
+    min-height:140px;
+    resize:vertical;
+    line-height:1.6;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus,
+.search:focus{
+    border-color:rgba(0,210,255,.48);
+}
+
+/* LIST */
+
+.filters{
+    display:flex;
+    gap:7px;
+    margin-bottom:15px;
+}
+
+.filter{
+    flex:1;
+    padding:9px 5px;
+
+    border-radius:9px;
+
+    border:1px solid rgba(90,170,220,.15);
+
+    background:rgba(5,18,35,.78);
+
+    color:#71879c;
+
+    font-size:10px;
+    font-weight:bold;
+}
+
+.filter.active{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,145,255,.9),
+            rgba(0,205,255,.72)
+        );
+}
+
+/* JASA */
+
+.jasa-card{
+    padding:12px;
+    margin-bottom:13px;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(9,37,65,.74),
+            rgba(3,12,27,.86)
+        );
+
+    border:1px solid rgba(0,195,255,.14);
+
+    overflow:hidden;
+}
+
+.jasa-photo{
+    display:block;
+
+    width:100%;
+    max-width:100%;
+    height:190px;
+
+    object-fit:contain;
+
+    border-radius:11px;
+
+    margin-bottom:11px;
+
+    background:#020a18;
+}
+
+.jasa-type{
+    display:inline-block;
+
+    padding:5px 8px;
+    margin-bottom:8px;
+
+    border-radius:7px;
+
+    background:rgba(0,190,255,.09);
+
+    color:#58dcff;
+
+    font-size:9px;
+    font-weight:bold;
+}
+
+.jasa-content{
+    width:100%;
+
+    padding:13px;
+
+    border-radius:11px;
+
+    background:rgba(2,10,24,.72);
+
+    color:#d8e5ef;
+
+    font-size:12px;
+    line-height:1.7;
+
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
+}
+
+.jasa-actions{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:7px;
+
+    margin-top:9px;
+}
+
+.order-btn{
+    padding:10px;
+
+    border:0;
+    border-radius:9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0087ff,
+            #00c8ff
+        );
+
+    color:#fff;
+
+    font-size:10px;
+    font-weight:bold;
+}
+
+.delete-btn{
+    padding:0 12px;
+
+    border:0;
+    border-radius:9px;
+
+    background:rgba(80,15,25,.55);
+
+    color:#ff8e9e;
+
+    font-size:10px;
+}
+
+/* ADMIN */
+
+.admin-status{
+    padding:10px 12px;
+    margin-bottom:12px;
+
+    border-radius:10px;
+
+    background:rgba(0,180,255,.07);
+
+    border:1px solid rgba(0,195,255,.11);
+
+    color:#8197aa;
+
+    font-size:10px;
+    line-height:1.5;
+}
+
+.empty{
+    padding:35px 15px;
+    text-align:center;
+    color:#60768b;
+    font-size:11px;
+}
+
+/* NAVBAR */
+
+.bottom-nav{
+    position:fixed;
+
+    z-index:100;
+
+    left:9px;
+    right:9px;
+    bottom:9px;
+
+    height:65px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+
+    border-radius:18px;
+
+    background:rgba(3,12,26,.88);
+
+    border:1px solid rgba(0,205,255,.16);
+
+    backdrop-filter:blur(19px);
+    -webkit-backdrop-filter:blur(19px);
+
+    box-shadow:0 12px 40px rgba(0,0,0,.48);
+}
+
+.nav-item{
+    border:0;
+    background:none;
+
+    color:#5e7489;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:3px;
+
+    font-size:9px;
+
+    transition:
+        transform .2s ease,
+        color .2s ease;
+}
+
+.nav-icon{
+    font-size:18px;
+
+    transition:
+        transform .2s ease,
+        text-shadow .2s ease;
+}
+
+/* AKTIF = BESAR */
+
+.nav-item.active{
+    color:#00d7ff;
+    transform:scale(1.13);
+}
+
+.nav-item.active .nav-icon{
+    transform:scale(1.25);
+
+    text-shadow:
+        0 0 12px rgba(0,215,255,.85);
+}
+
+/* TIDAK AKTIF = KECIL */
+
+.nav-item:not(.active){
+    transform:scale(.88);
+}
+
+.nav-item:active{
+    transform:scale(.78);
+}
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+    .bottom-nav{
+        width:632px;
+
+        left:50%;
+        right:auto;
+
+        transform:translateX(-50%);
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="header-info">
+
+        <h1>KINK SANZ</h1>
+
+        <p>Jasa Post • NEED • SELL</p>
+
+    </div>
+
+</header>
+
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+    <div class="home-intro">
+
+        <h2>Menu Utama</h2>
+
+        <p>
+            Selamat datang di KINK SANZ.
+            Pilih jenis jasa yang kamu butuhkan.
+        </p>
+
+    </div>
+
+
+    <!-- PP -->
+
+    <div class="home-profile glass">
+
+        <h3>KINK SANZ</h3>
+
+        <p>@kinksanz</p>
+
+    </div>
+
+
+    <div class="jenis-title">
+        JENIS JASA
+    </div>
+
+
+    <!-- JENIS -->
+
+    <div class="jenis-grid">
+
+        <div
+            class="jenis-card"
+            onclick="goPage('basic')">
+
+            <div class="jenis-icon">⚡</div>
+
+            <h3>Jasa Post Basic</h3>
+
+            <p>Order jasa post</p>
+
+        </div>
+
+
+        <div
+            class="jenis-card"
+            onclick="goPage('ajukan')">
+
+            <div class="jenis-icon">📤</div>
+
+            <h3>Ajukan Jasa</h3>
+
+            <p>Kirim format + foto</p>
+
+        </div>
+
+
+        <div
+            class="jenis-card"
+            onclick="goPage('list')">
+
+            <div class="jenis-icon">📋</div>
+
+            <h3>List Jasa</h3>
+
+            <p>Lihat jasa tersedia</p>
+
+        </div>
+
+
+        <div
+            class="jenis-card"
+            onclick="goPage('profile')">
+
+            <div class="jenis-icon">👤</div>
+
+            <h3>Profil KS</h3>
+
+            <p>Profil KINK SANZ</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADMIN -->
+
+    <div
+        class="home-card"
+        onclick="goPage('admin')">
+
+        <div class="home-icon">
+            🔐
+        </div>
+
+        <h3>Admin</h3>
+
+        <p>
+            Panel khusus pengelola KINK SANZ.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="page">
+
+    <h2 class="title">
+        Profil KS
+    </h2>
+
+    <p class="subtitle">
+        Tentang KINK SANZ
+    </p>
+
+
+    <div class="profile-box glass">
+
+        <img
+            src="logo.jpg"
+            class="profile-logo"
+            alt="KINK SANZ">
+
+        <div class="profile-name">
+            KINK SANZ
+        </div>
+
+        <div class="profile-user">
+            @kinksanz
+        </div>
+
+        <div class="profile-bio">
+            Jasa Post • NEED • SELL<br>
+            Tempat jasa post dan format jual beli.
+        </div>
+
+        <div class="social">
+
+            <button
+                class="btn"
+                onclick="openWA()">
+                WhatsApp
+            </button>
+
+            <button
+                class="btn dark"
+                onclick="openTikTok()">
+                TikTok
+            </button>
+
+            <button
+                class="btn dark"
+                onclick="openInstagram()">
+                Instagram
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BASIC -->
+
+<section id="basic" class="page">
+
+    <h2 class="title">
+        Jasa Post Basic
+    </h2>
+
+    <p class="subtitle">
+        Pesan jasa post basic
+    </p>
+
+    <div class="form-box glass">
+
+        <div class="jasa-content">
+Jasa Post Basic
+
+Untuk pemesanan langsung
+hubungi WhatsApp KINK SANZ.
+        </div>
+
+        <button
+            class="btn"
+            onclick="orderBasic()">
+
+            ORDER SEKARANG
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- AJUKAN -->
+
+<section id="ajukan" class="page">
+
+    <h2 class="title">
+        Ajukan Jasa
+    </h2>
+
+    <p class="subtitle">
+        Kirim format jasa kamu ke admin.
+    </p>
+
+    <div class="form-box glass">
+
+        <label>Nama / Username</label>
+
+        <input
+            id="namaPengaju"
+            class="input"
+            type="text"
+            placeholder="Contoh: Sanz">
+
+
+        <label>Nomor WhatsApp</label>
+
+        <input
+            id="waPengaju"
+            class="input"
+            type="text"
+            placeholder="628xxxxxxxxxx">
+
+
+        <label>Jenis Jasa</label>
+
+        <select
+            id="jenisPengajuan"
+            class="select">
+
+            <option value="NEED">
+                NEED
+            </option>
+
+            <option value="SELL">
+                SELL
+            </option>
+
+        </select>
+
+
+        <label>Foto</label>
+
+        <input
+            id="fotoPengajuan"
+            class="input"
+            type="file"
+            accept="image/*">
+
+
+        <label>Isi Format Jasa</label>
+
+        <textarea
+            id="isiPengajuan"
+            class="textarea"
+            placeholder="Tulis format jasa di sini..."></textarea>
+
+
+        <button
+            class="btn"
+            onclick="kirimPengajuan()">
+
+            KIRIM PENGAJUAN
+
+        </button>
+
+
+        <p
+            id="pengajuanStatus"
+            style="
+                color:#8197aa;
+                font-size:11px;
+                margin-top:10px;
+                line-height:1.5;
+            ">
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- LIST -->
+
+<section id="list" class="page">
+
+    <h2 class="title">
+        List Jasa Post
+    </h2>
+
+    <p class="subtitle">
+        Jasa yang sudah diterima admin.
+    </p>
+
+    <input
+        id="searchInput"
+        class="search"
+        type="text"
+        placeholder="Cari format jasa..."
+        oninput="renderJasa()">
+
+
+    <div class="filters">
+
+        <button
+            id="filterSemua"
+            class="filter active"
+            onclick="setFilter('SEMUA')">
+
+            SEMUA
+
+        </button>
+
+        <button
+            id="filterNeed"
+            class="filter"
+            onclick="setFilter('NEED')">
+
+            NEED
+
+        </button>
+
+        <button
+            id="filterSell"
+            class="filter"
+            onclick="setFilter('SELL')">
+
+            SELL
+
+        </button>
+
+    </div>
+
+
+    <div id="jasaContainer">
+
+        <div class="empty">
+            Belum ada jasa.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ADMIN -->
+
+<section id="admin" class="page">
+
+    <h2 class="title">
+        Admin
+    </h2>
+
+    <p class="subtitle">
+        Panel pengelola KINK SANZ
+    </p>
+
+
+    <!-- LOGIN -->
+
+    <div
+        id="loginBox"
+        class="form-box glass">
+
+        <label>
+            Email Admin
+        </label>
+
+        <input
+            id="adminEmail"
+            class="input"
+            type="email"
+            placeholder="Email admin">
+
+
+        <label>
+            Password
+        </label>
+
+        <input
+            id="adminPassword"
+            class="input"
+            type="password"
+            placeholder="Password">
+
+
+        <button
+            class="btn"
+            onclick="loginAdmin()">
+
+            LOGIN ADMIN
+
+        </button>
+
+        <p
+            id="loginError"
+            style="
+                color:#ff8192;
+                font-size:11px;
+                margin-top:10px;
+            ">
+        </p>
+
+    </div>
+
+
+    <!-- PANEL -->
+
+    <div
+        id="adminPanel"
+        style="display:none;">
+
+        <div class="admin-status">
+
+            Pengajuan jasa yang masuk akan tampil
+            di bawah. Kamu bisa melihat foto,
+            format, nama dan WhatsApp pengaju.
+
+        </div>
+
+
+        <div id="pengajuanContainer">
+
+            <div class="empty">
+                Belum ada pengajuan.
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn dark"
+            onclick="logoutAdmin()">
+
+            LOGOUT
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- NAVBAR -->
+
+<nav class="bottom-nav">
+
+    <button
+        id="navHome"
+        class="nav-item active"
+        onclick="goPage('home')">
+
+        <span class="nav-icon">⌂</span>
+        Home
+
+    </button>
+
+
+    <button
+        id="navAjukan"
+        class="nav-item"
+        onclick="goPage('ajukan')">
+
+        <span class="nav-icon">＋</span>
+        Ajukan
+
+    </button>
+
+
+    <button
+        id="navList"
+        class="nav-item"
+        onclick="goPage('list')">
+
+        <span class="nav-icon">☷</span>
+        List
+
+    </button>
+
+
+    <button
+        id="navBasic"
+        class="nav-item"
+        onclick="goPage('basic')">
+
+        <span class="nav-icon">⚡</span>
+        Basic
+
+    </button>
+
+
+    <button
+        id="navAdmin"
+        class="nav-item"
+        onclick="goPage('admin')">
+
+        <span class="nav-icon">🔐</span>
+        Admin
+
+    </button>
+
+</nav>
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    deleteDoc,
+    doc,
+    onSnapshot,
+    query,
+    orderBy,
+    serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAuMxEV5MNzcYeerzZrO-q0rLR9GPbMTls",
+    authDomain: "kink-sanz.firebaseapp.com",
+    projectId: "kink-sanz",
+    storageBucket: "kink-sanz.firebasestorage.app",
+    messagingSenderId: "699534547854",
+    appId: "1:699534547854:web:ca17910523e9ca3edde2df",
+    measurementId: "G-Z1S31H3RSF"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+/* =========================
+   DATA
+========================= */
+
+let jasaData = [];
+let pengajuanData = [];
+let filterAktif = "SEMUA";
+let adminAktif = false;
+
+
+/* =========================
+   NAVIGASI
+========================= */
+
+window.goPage = function(page){
+
+    document.querySelectorAll(".page")
+        .forEach(p => p.classList.remove("active"));
+
+    const target = document.getElementById(page);
+
+    if(target){
+        target.classList.add("active");
+    }
+
+    document.querySelectorAll(".nav-item")
+        .forEach(n => n.classList.remove("active"));
+
+    const navMap = {
+        home: "navHome",
+        ajukan: "navAjukan",
+        list: "navList",
+        basic: "navBasic",
+        admin: "navAdmin"
+    };
+
+    if(navMap[page]){
+        document
+            .getElementById(navMap[page])
+            ?.classList.add("active");
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+};
+
+
+/* =========================
+   FILTER
+========================= */
+
+window.setFilter = function(filter){
+
+    filterAktif = filter;
+
+    document.querySelectorAll(".filter")
+        .forEach(btn => btn.classList.remove("active"));
+
+    if(filter === "SEMUA"){
+        document
+            .getElementById("filterSemua")
+            ?.classList.add("active");
+    }
+
+    if(filter === "NEED"){
+        document
+            .getElementById("filterNeed")
+            ?.classList.add("active");
+    }
+
+    if(filter === "SELL"){
+        document
+            .getElementById("filterSell")
+            ?.classList.add("active");
+    }
+
+    renderJasa();
+};
+
+
+/* =========================
+   ESCAPE
+========================= */
+
+function escapeHTML(text){
+
+    if(text === undefined || text === null){
+        return "";
+    }
+
+    return String(text)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+}
+
+
+/* =========================
+   KOMPRES FOTO
+========================= */
+
+function compressImage(file){
+
+    return new Promise((resolve,reject)=>{
+
+        const reader = new FileReader();
+
+        reader.onload = e => {
+
+            const img = new Image();
+
+            img.onload = () => {
+
+                const max = 450;
+
+                let w = img.width;
+                let h = img.height;
+
+                if(w > h){
+
+                    if(w > max){
+                        h = h * max / w;
+                        w = max;
+                    }
+
+                }else{
+
+                    if(h > max){
+                        w = w * max / h;
+                        h = max;
+                    }
+                }
+
+                const canvas =
+                    document.createElement("canvas");
+
+                canvas.width = w;
+                canvas.height = h;
+
+                const ctx =
+                    canvas.getContext("2d");
+
+                ctx.drawImage(
+                    img,
+                    0,
+                    0,
+                    w,
+                    h
+                );
+
+                resolve(
+                    canvas.toDataURL(
+                        "image/jpeg",
+                        0.40
+                    )
+                );
+            };
+
+            img.onerror = reject;
+            img.src = e.target.result;
+        };
+
+        reader.onerror = reject;
+
+        reader.readAsDataURL(file);
+    });
+}
+
+
+/* =========================
+   RENDER LIST
+========================= */
+
+window.renderJasa = function(){
+
+    const container =
+        document.getElementById("jasaContainer");
+
+    if(!container) return;
+
+    const search =
+        (
+            document.getElementById("searchInput")
+            ?.value || ""
+        )
+        .toLowerCase()
+        .trim();
+
+    const data =
+        jasaData.filter(item => {
+
+            const isi =
+                String(item.isi || "")
+                .toLowerCase();
+
+            const jenis =
+                String(item.jenis || "")
+                .toLowerCase();
+
+            const cocokSearch =
+                !search ||
+                isi.includes(search) ||
+                jenis.includes(search);
+
+            const cocokFilter =
+                filterAktif === "SEMUA" ||
+                item.jenis === filterAktif;
+
+            return cocokSearch && cocokFilter;
+        });
+
+
+    if(data.length === 0){
+
+        container.innerHTML = `
+            <div class="empty">
+                Belum ada jasa.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        data.map(item => `
+
+            <div class="jasa-card">
+
+                ${
+                    item.foto
+                    ?
+                    `
+                    <img
+                        src="${item.foto}"
+                        class="jasa-photo"
+                        alt="Foto Jasa">
+                    `
+                    :
+                    ""
+                }
+
+                <div class="jasa-type">
+                    ${escapeHTML(item.jenis)}
+                </div>
+
+                <div class="jasa-content">
+                    ${escapeHTML(item.isi)}
+                </div>
+
+                <div class="jasa-actions">
+
+                    <button
+                        class="order-btn"
+                        onclick="orderJasa('${escapeHTML(item.wa || "")}')">
+
+                        ORDER / HUBUNGI
+
+                    </button>
+
+                    ${
+                        adminAktif
+                        ?
+                        `
+                        <button
+                            class="delete-btn"
+                            onclick="hapusJasa('${item.id}')">
+
+                            HAPUS
+
+                        </button>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
+            </div>
+
+        `).join("");
+};
+
+
+/* =========================
+   ORDER
+========================= */
+
+window.orderJasa = function(wa){
+
+    if(!wa){
+
+        alert("Nomor WhatsApp belum tersedia.");
+
+        return;
+    }
+
+    wa = String(wa).replace(/\D/g,"");
+
+    window.open(
+        "https://wa.me/" + wa,
+        "_blank"
+    );
+};
+
+
+window.orderBasic = function(){
+
+    window.open(
+        "https://wa.me/6285236988992",
+        "_blank"
+    );
+};
+
+
+window.openWA = function(){
+
+    window.open(
+        "https://wa.me/6285236988992",
+        "_blank"
+    );
+};
+
+
+window.openTikTok = function(){
+
+    window.open(
+        "https://www.tiktok.com/@kinksanz",
+        "_blank"
+    );
+};
+
+
+window.openInstagram = function(){
+
+    window.open(
+        "https://www.instagram.com/kinksanz",
+        "_blank"
+    );
+};
+
+
+/* =========================
+   LOGIN ADMIN
+========================= */
+
+window.loginAdmin = async function(){
+
+    const email =
+        document.getElementById("adminEmail")
+        .value
+        .trim();
+
+    const password =
+        document.getElementById("adminPassword")
+        .value;
+
+    const error =
+        document.getElementById("loginError");
+
+
+    error.textContent = "";
+
+
+    if(email !== "sanzbind4@gmail.com"){
+
+        error.textContent =
+            "Email ini bukan email admin.";
+
+        return;
+    }
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+    }catch(err){
+
+        console.error(err);
+
+        error.textContent =
+            "Login gagal. Cek email dan password.";
+
+    }
+};
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+window.logoutAdmin = async function(){
+
+    await signOut(auth);
+};
+
+
+/* =========================
+   AUTH STATUS
+========================= */
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        const loginBox =
+            document.getElementById("loginBox");
+
+        const adminPanel =
+            document.getElementById("adminPanel");
+
+
+        if(
+            user &&
+            user.email === "sanzbind4@gmail.com"
+        ){
+
+            adminAktif = true;
+
+            loginBox.style.display = "none";
+            adminPanel.style.display = "block";
+
+            renderPengajuan();
+            renderJasa();
+
+        }else{
+
+            adminAktif = false;
+
+            loginBox.style.display = "block";
+            adminPanel.style.display = "none";
+
+            renderJasa();
+        }
+    }
+);
+
+
+/* =========================
+   KIRIM PENGAJUAN
+========================= */
+
+window.kirimPengajuan = async function(){
+
+    const nama =
+        document.getElementById("namaPengaju")
+        .value.trim();
+
+    const wa =
+        document.getElementById("waPengaju")
+        .value.trim();
+
+    const jenis =
+        document.getElementById("jenisPengajuan")
+        .value;
+
+    const isi =
+        document.getElementById("isiPengajuan")
+        .value.trim();
+
+    const fotoInput =
+        document.getElementById("fotoPengajuan");
+
+    const status =
+        document.getElementById("pengajuanStatus");
+
+
+    if(!nama){
+
+        status.textContent =
+            "Nama / username wajib diisi.";
+
+        return;
+    }
+
+
+    if(!wa){
+
+        status.textContent =
+            "Nomor WhatsApp wajib diisi.";
+
+        return;
+    }
+
+
+    if(!isi){
+
+        status.textContent =
+            "Isi format jasa wajib diisi.";
+
+        return;
+    }
+
+
+    status.style.color = "#8197aa";
+    status.textContent =
+        "Mengirim pengajuan...";
+
+
+    try{
+
+        let foto = "";
+
+
+        if(
+            fotoInput.files &&
+            fotoInput.files[0]
+        ){
+
+            foto =
+                await compressImage(
+                    fotoInput.files[0]
+                );
+        }
+
+
+        await addDoc(
+            collection(db,"pengajuan"),
+            {
+
+                nama:nama,
+
+                wa:wa,
+
+                jenis:jenis,
+
+                isi:isi,
+
+                foto:foto,
+
+                status:"menunggu",
+
+                createdAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        status.style.color =
+            "#55e6ff";
+
+        status.textContent =
+            "Berhasil dikirim. Tunggu admin menerima.";
+
+
+        document.getElementById("namaPengaju").value = "";
+        document.getElementById("waPengaju").value = "";
+        document.getElementById("isiPengajuan").value = "";
+        fotoInput.value = "";
+
+
+    }catch(error){
+
+        console.error(error);
+
+        status.style.color =
+            "#ff8192";
+
+        status.textContent =
+            "Gagal mengirim. Cek Firebase Rules.";
+    }
+};
+
+
+/* =========================
+   RENDER PENGAJUAN ADMIN
+========================= */
+
+function renderPengajuan(){
+
+    const container =
+        document.getElementById(
+            "pengajuanContainer"
+        );
+
+    if(!container) return;
+
+
+    if(pengajuanData.length === 0){
+
+        container.innerHTML = `
+            <div class="empty">
+                Belum ada pengajuan.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        pengajuanData.map(item => `
+
+            <div class="jasa-card">
+
+                ${
+                    item.foto
+                    ?
+                    `
+                    <img
+                        src="${item.foto}"
+                        class="jasa-photo"
+                        alt="Foto Pengajuan">
+                    `
+                    :
+                    ""
+                }
+
+
+                <div class="jasa-type">
+                    ${escapeHTML(item.jenis)}
+                </div>
+
+
+                <div style="
+                    color:#58dcff;
+                    font-size:11px;
+                    margin-bottom:7px;
+                ">
+
+                    👤 ${escapeHTML(item.nama)}
+
+                </div>
+
+
+                <div style="
+                    color:#8ba0b5;
+                    font-size:10px;
+                    margin-bottom:10px;
+                ">
+
+                    WhatsApp:
+                    ${escapeHTML(item.wa)}
+
+                </div>
+
+
+                <div class="jasa-content">
+
+                    ${escapeHTML(item.isi)}
+
+                </div>
+
+
+                <div style="
+                    display:grid;
+                    grid-template-columns:1fr 1fr;
+                    gap:7px;
+                    margin-top:9px;
+                ">
+
+
+                    <button
+                        class="order-btn"
+                        onclick="terimaPengajuan('${item.id}')">
+
+                        ✓ TERIMA
+
+                    </button>
+
+
+                    <button
+                        class="delete-btn"
+                        onclick="tolakPengajuan('${item.id}')">
+
+                        ✕ TOLAK
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+}
+
+
+/* =========================
+   TERIMA
+========================= */
+
+window.terimaPengajuan = async function(id){
+
+    if(!adminAktif){
+
+        alert("Akses admin ditolak.");
+
+        return;
+    }
+
+
+    const item =
+        pengajuanData.find(
+            x => x.id === id
+        );
+
+
+    if(!item) return;
+
+
+    if(
+        !confirm(
+            "Terima pengajuan ini?"
+        )
+    ){
+
+        return;
+    }
+
+
+    try{
+
+        await addDoc(
+            collection(db,"jasa"),
+            {
+
+                jenis:item.jenis,
+
+                isi:item.isi,
+
+                wa:item.wa,
+
+                nama:item.nama,
+
+                foto:item.foto || "",
+
+                createdAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        await deleteDoc(
+            doc(
+                db,
+                "pengajuan",
+                id
+            )
+        );
+
+
+        alert(
+            "Berhasil diterima dan masuk List Jasa."
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "Gagal menerima pengajuan."
+        );
+    }
+};
+
+
+/* =========================
+   TOLAK
+========================= */
+
+window.tolakPengajuan = async function(id){
+
+    if(!adminAktif){
+
+        alert("Akses admin ditolak.");
+
+        return;
+    }
+
+
+    if(
+        !confirm(
+            "Tolak pengajuan ini?"
+        )
+    ){
+
+        return;
+    }
+
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "pengajuan",
+                id
+            )
+        );
+
+
+        alert(
+            "Pengajuan ditolak."
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "Gagal menolak pengajuan."
+        );
+    }
+};
+
+
+/* =========================
+   HAPUS JASA
+========================= */
+
+window.hapusJasa = async function(id){
+
+    if(!adminAktif){
+
+        alert("Kamu bukan admin.");
+
+        return;
+    }
+
+
+    if(
+        !confirm(
+            "Hapus jasa ini dari List?"
+        )
+    ){
+
+        return;
+    }
+
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "jasa",
+                id
+            )
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "Gagal menghapus jasa."
+        );
+    }
+};
+
+
+/* =========================
+   REALTIME LIST
+========================= */
+
+const jasaQuery =
+    query(
+        collection(db,"jasa"),
+        orderBy("createdAt","desc")
+    );
+
+
+onSnapshot(
+    jasaQuery,
+    snapshot => {
+
+        jasaData =
+            snapshot.docs.map(
+                d => ({
+                    id:d.id,
+                    ...d.data()
+                })
+            );
+
+        renderJasa();
+
+    },
+    error => {
+
+        console.error(
+            "LIST JASA ERROR:",
+            error
+        );
+
+    }
+);
+
+
+/* =========================
+   REALTIME PENGAJUAN
+========================= */
+
+const pengajuanQuery =
+    query(
+        collection(db,"pengajuan"),
+        orderBy("createdAt","desc")
+    );
+
+
+onSnapshot(
+    pengajuanQuery,
+    snapshot => {
+
+        pengajuanData =
+            snapshot.docs.map(
+                d => ({
+                    id:d.id,
+                    ...d.data()
+                })
+            );
+
+        renderPengajuan();
+
+    },
+    error => {
+
+        console.error(
+            "PENGAJUAN ERROR:",
+            error
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
